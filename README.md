@@ -1,0 +1,38 @@
+# NetflixGPT
+- create-react-app
+- Configured Tailwindcss
+- Header
+- Routing of App
+- Login
+- Signup
+- Form Validation
+- useRef 
+- Firebase setup
+- Create Signup user account
+- Implement sign in user api
+- Created redux store with userSlice
+- Implement Sign Out 
+- Update Profile
+- Fetch from TMDB movies api
+- Custom hook for Now Playing movies
+- Updated redux store with movies
+- Custom hook for getting trailer of Hero movie
+- Built Main Container conataining hero movie in Browse page 
+- Embedded Youtube video as a trailer of Hero movie
+- GPT search feature
+- Added Multilingual feature
+
+# Features
+- Login/Signup
+    - Sigin/Signup form
+    - redirect to browse page
+- Browse (after authentication)
+    - Header
+    - Main movie
+        - Title & description
+        - Trailer in background
+        - Movie Suggestion
+            - Movies * N
+- NetflixGPT
+    - Searchbar
+    - Movie suggestions
