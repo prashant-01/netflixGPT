@@ -21,6 +21,8 @@
 - Embedded Youtube video as a trailer of Hero movie
 - GPT search feature
 - Added Multilingual feature
+- Movie suggestions with Shimmer
+- Added Responsiveness
 
 # Features
 - Login/Signup
