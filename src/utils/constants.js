@@ -5,7 +5,6 @@ export const TOP_RATED_URL = "https://api.themoviedb.org/3/movie/top_rated";
 export const UPCOMING_URL = "https://api.themoviedb.org/3/movie/upcoming";
 export const VIDEO_URL = 'https://api.themoviedb.org/3/movie';
 export const SEARCH_MOVIE_URL = 'https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=';
-export const REACT_APP_OPEN_AI_KEY = "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";
 export const API_OPTIONS = {
     method: 'GET',
     headers: {
