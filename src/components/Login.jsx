@@ -65,7 +65,7 @@ const Login = () => {
                 <Header/>
                 <div className='flex items-center justify-center'>
                     <form onSubmit={(e) => e.preventDefault()}
-                    className=' bg-black py-8 px-8 flex flex-col gap-10 bg-opacity-80 rounded-md w-[30%]'>
+                    className=' bg-black py-8 px-8 flex flex-col gap-10 bg-opacity-80 rounded-md w-[90%] sm:w-[30%] mt-10 sm:mt-4'>
                         <label className='text-3xl font-semibold text-white'>
                             {
                                 formType === "signin" ? lang[language].signIn : lang[language].signUp

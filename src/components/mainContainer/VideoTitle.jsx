@@ -10,8 +10,8 @@ const VideoTitle = ({ title , overview }) => {
         <div className='text-white absolute w-full aspect-video bg-[rgba(0,0,0,.7)]'>
             <Header/>
             <div className='sm:pt-28 sm:pl-12 pl-6'>
-                <p className='sm:text-6xl text-xl font-semibold'>{ title }</p>
-                <p className='sm:w-[550px] w-[350px] text-wrap sm:mt-6'>{ overview }</p>
+                <p className='sm:text-6xl text-xl font-semibold '>{ title }</p>
+                <p className='sm:w-[550px] w-[350px] text-wrap sm:mt-6 text-gray-700 sm:text-white'>{ overview }</p>
                 <div className='flex gap-4 items-center mt-4'>
                     <button className='flex gap-2 items-center border rounded-md px-4 py-2'>
                         <IoPlaySharp size={`1.75rem`} />
