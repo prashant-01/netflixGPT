@@ -1,4 +1,4 @@
-export const USER_LOGO = 'https://api.dicebear.com/7.x/fun-emoji/svg?seed=';
+export const USER_LOGO = 'https://api.dicebear.com/8.x/bottts/svg?seed=';
 export const NOW_PLAYING_URL = 'https://api.themoviedb.org/3/movie/now_playing?page=1';
 export const POPULAR_URL = "https://api.themoviedb.org/3/movie/popular";
 export const TOP_RATED_URL = "https://api.themoviedb.org/3/movie/top_rated";

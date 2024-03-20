@@ -27,7 +27,7 @@ const GptMovieSuggestion = () => {
                 return(
                   <div>
                     {
-                      movie.poster_path ? 
+                      movie?.poster_path ? 
                       <img src={ IMG_CDN + movie.poster_path } alt='poster-unavailable'
                       className='rounded-md object-cover h-[450px] sm:h-[300px] w-[300px] sm:w-[200px]'/> :
                       <div className='w-[200px] text-wrap text-white text-lg'>

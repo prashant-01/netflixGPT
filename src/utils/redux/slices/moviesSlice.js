@@ -8,6 +8,7 @@ const moviesSlice = createSlice({
         upcomingMovies : localStorage.getItem('upcomingMovies') ? JSON.parse(localStorage.getItem('upcomingMovies')) : [] ,
         topRatedMovies : localStorage.getItem('topRatedMovies') ? JSON.parse(localStorage.getItem('topRatedMovies')) : [] ,
         trailerKey : localStorage.getItem('trailerKey') ? JSON.parse(localStorage.getItem('trailerKey')) : null ,
+        
     } ,
     reducers : {
         setMovies : ( state , action ) => {

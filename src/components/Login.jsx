@@ -4,9 +4,11 @@ import { validateEmail , validateName, validatePassword } from '../utils/validat
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { USER_LOGO } from '../utils/constants.js';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import lang from "../utils/language.js"
+import { addUser } from '../utils/redux/slices/userSlice.js';
 const Login = () => {
+    const dispatch = useDispatch();
     const { language } = useSelector(store => store.appConfig)
     const [ formType , setFormType ] = useState("signin");
     const [ validInputs , setValidInputs ] = useState(0);
@@ -21,7 +23,7 @@ const Login = () => {
         if(formType === "signup")document.getElementById("nameError").innerText="";
         document.getElementById("emailError").innerText="";
         document.getElementById("passwordError").innerText="";
-        document.getElementById("error").innerText="";
+        document.getElementById("submitError").innerText="";
         setValidInputs(0);
         setFormType( formType === "signin" ? "signup" : "signin" )
     }
@@ -29,32 +31,30 @@ const Login = () => {
     const handleSubmit = async () => {
         if( formType === "signup" && validInputs === 3 ){
             try{
-                const userCredential = await createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
-                const user = userCredential.user;
+                await createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
                 try{
-                    await updateProfile( user , {
+                    await updateProfile( auth.currentUser , {
                         displayName : name.current.value ,
-                        photoURL : `${ USER_LOGO + name.current.value}`
+                        photoURL : `${USER_LOGO + name.current.value}`
                     } )
-                    document.getElementById("error").innerText = '';
+                    const { uid, email, displayName, photoURL } = auth.currentUser;
+                    dispatch( addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }) );
                 }catch(error){
                     console.log(error);
-                    document.getElementById("error").innerText = error
                 }
             }catch(error){
                 console.log(error);
-                document.getElementById("error").innerText = error
+                document.getElementById("submitError").innerText=error;
             }
             return;
         }
         else if( formType === "signin" && validInputs === 2 ){
             try{
-                const userCredential = await signInWithEmailAndPassword(auth, email.current.value, password.current.value)
-                const user = userCredential.user;
-                document.getElementById("error").innerText = '';
+                await signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+                document.getElementById("submitError").innerText = "";
             }catch(error){
                 console.log(error);
-                document.getElementById("error").innerText = error
+                document.getElementById("submitError").innerText = error
             }
             return;
         }
@@ -119,8 +119,8 @@ const Login = () => {
                             </div>
                         </div>
                         <div>
-                            <div id='error' className='text-red-600 italic text-sm'></div>
-                            <button type='submit' onClick={() => handleSubmit()}
+                            <div id='submitError' className='text-red-600 italic text-sm'></div>
+                            <button type='submit' onClick={handleSubmit}
                             className='bg-[#e50914] rounded-md px-12 py-3 text-white font-semibold w-full'>
                                 { formType === "signin" ? lang[language].signIn : lang[language].signUp }
                             </button>

@@ -58,7 +58,7 @@ const Header = () => {
           className='sm:invisible cursor-pointer'><GiHamburgerMenu color='white' size={`2rem`}/></div>
           <img src={ netflix_logo } alt='Website Logo' className='w-32 sm:w-64 object-cover'/>
         </div>
-        <div className={ `${showDropDown ? 'block' : 'hidden sm:block'} w-full sm:max-w-max sm:ml-10 ml-4
+        <div className={ `${showDropDown ? 'block' : 'hidden sm:block'} w-full sm:ml-10 ml-4
         bg-black bg-opacity-50 sm:bg-transparent sm:bg-opacity-100` }>
           <select onChange={ handleLanguage }
           className='text-white sm:px-6 py-2 focus:outline-none bg-transparent sm:text-xl cursor-pointer border rounded-md'>
@@ -93,7 +93,10 @@ const Header = () => {
                   { !showGPT && <FaSearch size={`1rem`}/> }
                 </button>
                 <img src={ user?.photoURL } alt='userIcon' className='object-cover size-[40px] rounded-sm'/>
-                <button onClick={handleSignOut}
+                <button onClick={() => {
+                  handleSignOut()
+                  dispatch(setGptSuggestions(null));
+                }}
                 className='bg-[#e50914] rounded-md text-white font-semibold px-4 py-2'>
                   { lang[language].signOut }
                 </button>

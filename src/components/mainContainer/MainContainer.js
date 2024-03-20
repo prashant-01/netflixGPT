@@ -16,11 +16,12 @@ const MainContainer = () => {
   return (
     <div >
       {
-        mainMovie && 
+        mainMovie ?
         <div>
           <VideoTitle title={ mainMovie.original_title } overview={ mainMovie.overview } />
           <VideoBackground movieId={ mainMovie.id }/>
-        </div>
+        </div> :
+        <div>Loading...</div>
       }
     </div>
   )
