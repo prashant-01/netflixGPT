@@ -39,7 +39,7 @@ const GptSearchBar = () => {
     }
     return (
         <div className='bg-transparent px-6 py-4 rounded-md'>
-            <form onSubmit={ (e) => e.preventDefault()} className='flex flex-col gap-3 sm:gap-0 sm:flex-row items-center justify-center mb-8'>
+            <form onSubmit={ (e) => e.preventDefault()} className='flex flex-col gap-3 sm:flex-row items-center justify-center my-12'>
                 <div className='relative'>
                     <input 
                         type='text'

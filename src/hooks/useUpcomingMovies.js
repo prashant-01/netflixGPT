@@ -17,7 +17,7 @@ const useMovies = () => {
     }
 
     useEffect( () => {
-        !upcomingMovies && fetchUpcomingMovies();
+        upcomingMovies !== 0 && fetchUpcomingMovies();
     } , []);
 }
     export default useMovies;

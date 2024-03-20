@@ -17,7 +17,7 @@ const useMovies = () => {
     }
 
     useEffect( () => {
-        !movies && fetchNowPlayingMovies();
+        movies.length === 0 && fetchNowPlayingMovies();
     } , []);
 }
     export default useMovies;

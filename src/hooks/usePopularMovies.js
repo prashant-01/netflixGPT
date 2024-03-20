@@ -17,7 +17,7 @@ const useMovies = () => {
     }
 
     useEffect( () => {
-        !popularMovies && fetchNowPlayingMovies();
+        popularMovies !== 0 && fetchNowPlayingMovies();
     } , []);
 }
     export default useMovies;
